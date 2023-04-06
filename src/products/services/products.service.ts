@@ -61,7 +61,38 @@ export class ProductsService {
 			});
 			product.brand = brand;
 		}
+		if (changes.categoriesIds) {
+			const categories = await this.categoryRepo.findBy({
+				id: In(changes.categoriesIds),
+			});
+			product.categories = categories;
+		}
 		this.productRepo.merge(product, changes);
+		return this.productRepo.save(product);
+	}
+
+	async removeCategoryByProduct(productId: number, categoryId: number) {
+		const product = await this.productRepo.findOne({
+			relations: ['categories'],
+			where: {
+				id: productId,
+			},
+		});
+		product.categories = product.categories.filter(
+			(item) => item.id !== categoryId,
+		);
+		return this.productRepo.save(product);
+	}
+
+	async addCategoryToProduct(productId: number, categoryId: number) {
+		const product = await this.productRepo.findOne({
+			relations: ['categories'],
+			where: {
+				id: productId,
+			},
+		});
+		const category = await this.categoryRepo.findOneBy({ id: categoryId });
+		product.categories.push(category);
 		return this.productRepo.save(product);
 	}
 
