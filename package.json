@@ -18,11 +18,11 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-	"typeorm": "typeorm-ts-node-esm -d src/database/data-source.ts",
-	"migrations:generate": "npm run typeorm -- migration:generate",
-	"migrations:run": "npm run typeorm -- migration:run",
-	"migrations:show": "npm run typeorm -- migration:show",
-	"migrations:drop": "npm run typeorm -- schema:drop"
+    "typeorm": "typeorm-ts-node-esm -d src/database/data-source.ts",
+    "migrations:generate": "npm run typeorm -- migration:generate",
+    "migrations:run": "npm run typeorm -- migration:run",
+    "migrations:show": "npm run typeorm -- migration:show",
+    "migrations:drop": "npm run typeorm -- schema:drop"
   },
   "dependencies": {
     "@nestjs/axios": "^2.0.0",
@@ -35,6 +35,7 @@
     "@nestjs/typeorm": "^9.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "dotenv": "^16.0.3",
     "joi": "^17.8.3",
     "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
