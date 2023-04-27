@@ -35,5 +35,6 @@ import { OrderItem } from './entities/order-item.entity';
 		OrdersService,
 		OrderItemService,
 	],
+	exports: [UsersService],
 })
 export class UsersModule {}
