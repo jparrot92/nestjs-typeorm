@@ -22,6 +22,7 @@ import config from './config';
 			validationSchema: Joi.object({
 				API_KEY: Joi.string().required(),
 				DATABASE_NAME: Joi.string().required(),
+				JWT_SECRET: Joi.string().required(),
 				DATABASE_PORT: Joi.number().required(),
 				POSTGRES_DB: Joi.string().required(),
 				POSTGRES_USER: Joi.string().required(),
